@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
+.navbar {
+	font-weight: bold;
+}
+* {
+	font-family: "Quicksand", sans-serif;
+}
+.jumbotron {
+	padding-top: 100px;
+}
+.bg-grad{
+	background: linear-gradient(45deg, rgba(118, 85, 202, 0.7), rgba(65, 88, 208, 0.7));
+}
+body{
+	background: linear-gradient(45deg, #4158d0, #c850c0);
+}
+.bg-img{
+	background: linear-gradient(45deg, #4158d0, #c850c0, #4158d0, #c850c0);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/*Body*/
+.post{
+	text-decoration: none;
+}
+.post:hover{
+	text-decoration: none;
+}
+.main-con{
+	border-radius: 30px;
+	background-color: rgba(255,0,0,0);
+}
+.ques-card {
+	border-top-right-radius: 30px !important;
+	border-bottom-left-radius: 30px !important;
+	border-bottom-right-radius: 30px !important;
+}
+
+.ques-foot {
+	margin-top: 10px;
+	border-bottom-left-radius: 30px !important;
+	border-bottom-right-radius: 30px !important;
+}
+.card p, h4{
+	font-weight: bold;
+	background: linear-gradient(#4158d0, #c850c0);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.card span{
+	font-weight: bold;
+	background: linear-gradient(#4158d0, #c850c0);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+/*BodyEnd*/
