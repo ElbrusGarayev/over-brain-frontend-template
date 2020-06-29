@@ -33,6 +33,8 @@ h3{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: rgba(236,240,241, 0.3) !important;
+    border-radius: 30px;
 }
 .line-cen{
     width: 100px;

@@ -78,6 +78,7 @@ nav {
     max-height: 350px;
     min-height: 100px;
     overflow-y: scroll;
+    background-color: rgba(236,240,241, 0.1) !important;
 }
 
 .input-item:focus {
@@ -85,6 +86,7 @@ nav {
 }
 
 .ans-card {
+    background-color: rgba(236,240,241, 0.9) !important;
     border-top-right-radius: 20px !important;
     border-top-left-radius: 20px !important;
     border-bottom-left-radius: 20px !important;
@@ -96,6 +98,7 @@ nav {
 }
 
 .ques-card {
+    background-color: rgba(236,240,241, 0.9) !important;
     border-top-right-radius: 30px !important;
     border-bottom-left-radius: 30px !important;
     border-bottom-right-radius: 30px !important;
@@ -109,6 +112,10 @@ nav {
 
 .ans-foot {
     border-bottom-left-radius: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .ans-row {
@@ -135,7 +142,6 @@ nav {
     transition: 0.3s;
 }
 .input-btn:hover{
-    box-shadow: 1px 6px 15px #c850c0;
     transform: translateY(-8px);
 }
 .input-btn:focus{
@@ -143,4 +149,25 @@ nav {
 }
 .input-item::-webkit-scrollbar {
     display: none;
+}
+.btns{
+    display: flex;
+    justify-content: space-between;
+    width: 230px;
+}
+.btns button{
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    width: 100px;
+    background: linear-gradient(45deg, #4158d0, #c850c0);
+    box-shadow: 1px 2px 15px #6944dd;
+    transition: 0.3s;
+}
+.btns button:hover{
+    transform: translateY(-5px);
+}
+.btns:focus{
+    outline: none;
 }
