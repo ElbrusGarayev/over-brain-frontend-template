@@ -5,7 +5,8 @@
     <title th:text="${username}"></title>
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar bg-grad navbar-expand-sm navbar-dark fixed-top">
@@ -113,14 +114,72 @@
 
             </div>
 
-            <div class="profile-card-ctr">
-                <a href="settings.html">
-                    <button class="profile-card__button button--blue">Settings</button>
+            <div class="profile-card-ctr d-flex justify-content-around">
+                <a href="#photo">
+                    <button class="profile-card__button button--blue mt-2">Change Photo</button>
+                </a>
+                <a href="#pwd">
+                    <button class="profile-card__button button--blue mt-2">Change password</button>
                 </a>
             </div>
         </div>
     </div>
 
+</div>
+<div id="pwd" class="overlay container">
+    <form method="post">
+        <div class="popup col-md-5">
+            <h2>Change your password!</h2>
+            <div class="line mt-1 mb-2 rounded"></div>
+            <a class="close" href="#">&times;</a>
+            <div class="row mt-4 mb-4 w-100">
+                <div class="col-md-12">
+                    <input required type="text" class="input-title w-100" placeholder="Old password" name="oldPass">
+                </div>
+            </div>
+            <div class="row mb-4 w-100">
+                <div class="col-md-12">
+                    <input required type="text" class="input-title w-100" placeholder="New password" name="newPass">
+                </div>
+            </div>
+            <div class="row mb-4 w-100">
+                <div class="col-md-12">
+                    <input required type="text" class="input-title w-100" placeholder="Confirm password" name="conPass">
+                </div>
+            </div>
+            <div class="row w-100">
+                <div class="col-md-12 d-flex justify-content-around">
+                    <input type="submit" class="ask text-white font-weight-bold" value="Submit">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="photo" class="overlay container">
+    <form method="post">
+        <div class="popup col-md-5">
+            <h2>Change your photo!</h2>
+            <div class="line mt-1 mb-2 rounded"></div>
+            <a class="close" href="#">&times;</a>
+            <div class="row mt-4 mb-5">
+                <div class="col-md-12">
+                    <div class="avatar-wrapper">
+                        <img class="profile-pic" src=""/>
+                        <div class="upload-button">
+                            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                        </div>
+                        <input class="file-upload" type="file" accept="image/*"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-around">
+                    <input type="submit" class="ask text-white font-weight-bold" value="Submit">
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 <svg hidden="hidden">
@@ -179,6 +238,32 @@
         </symbol>
     </defs>
 </svg>
+<script>
+    $(document).ready(function () {
+
+        var readURL = function (input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.profile-pic').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $(".file-upload").on('change', function () {
+            readURL(this);
+        });
+
+        $(".upload-button").on('click', function () {
+            $(".file-upload").click();
+        });
+    });
+</script>
+
+
 <script>
     var messageBox = document.querySelector('.js-message');
     var btn = document.querySelector('.js-message-btn');

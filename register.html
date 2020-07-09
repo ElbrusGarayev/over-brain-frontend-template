@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div>
-                            <h3 class="text-white">Registration</h3>
+                            <h3 class="text-white font-weight-bold">Registration</h3>
                             <div class="line-cen mb-3 mt-3 rounded"></div>
                         </div>
                     </div>
@@ -33,9 +33,15 @@
                 <div class="row w-100">
                     <div class="col-md-12">
                         <div>
-                            <h3 class="text-white">User Details*</h3>
+                            <h3 class="text-white font-weight-bold">User Details*</h3>
                             <div class="line mb-3 mt-3 rounded"></div>
                         </div>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-md-12">
+                        <span class="message font-weight-bold text-danger">Username already used!</span>
+                        <span class="message font-weight-bold text-danger float-right">Username already used!</span>
                     </div>
                 </div>
                 <div class="row w-100 ">
@@ -56,34 +62,39 @@
                 </div>
                 <div class="row w-100">
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="password" placeholder="Password">
+                        <input id="password" required class="input-item w-100" type="password" placeholder="Password">
                     </div>
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="password" placeholder="Confirm Password">
+                        <input id="rePass" required class="input-item w-100" type="password" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <div class="row w-100 msg-row">
+                    <div class="col-md-12 justify-content-center">
+                        <span id="message" class="message font-weight-bold"></span>
                     </div>
                 </div>
                 <div class="row w-100">
                     <div class="col-md-12">
                         <div>
-                            <h3 class="text-white mt-4">Social media links</h3>
+                            <h3 class="text-white mt-4 font-weight-bold">Social media links</h3>
                             <div class="line mb-3 mt-3 rounded"></div>
                         </div>
                     </div>
                 </div>
                 <div class="row w-100 ">
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="text" placeholder="Facebook">
+                        <input class="input-item w-100" type="text" placeholder="Facebook">
                     </div>
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="text" placeholder="Twitter">
+                        <input class="input-item w-100" type="text" placeholder="Twitter">
                     </div>
                 </div>
                 <div class="row w-100 ">
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="text" placeholder="Instagram">
+                        <input class="input-item w-100" type="text" placeholder="Instagram">
                     </div>
                     <div class="col-md-6 mt-4">
-                        <input required class="input-item w-100" type="email" placeholder="Github">
+                        <input class="input-item w-100" type="email" placeholder="Github">
                     </div>
                 </div>
 
@@ -101,8 +112,13 @@
                 <div class="row w-100">
                     <div class="col-md-12 mt-2">
                         <div class="profile-card-ctr mb-3">
-                            <button class="profile-card__button button--blue js-message-btn">Register</button>
+                            <button type="submit" class="profile-card__button button--blue js-message-btn">Register</button>
                         </div>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-md-12 mt-2 col-sign">
+                        <span><a href="/user/login" class="sign font-weight-bold">Sign in</a></span>
                     </div>
                 </div>
             </div>
@@ -152,6 +168,15 @@
                 }
             }));
         }
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $('#password, #rePass').on('keyup', function () {
+        if ($('#password').val() == $('#rePass').val()) {
+            $('#message').html('Matching').css('color', 'green');
+        } else
+            $('#message').html('Not Matching').css('color', 'red');
     });
 </script>
 <script>
